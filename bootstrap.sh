@@ -33,7 +33,9 @@ clone() {
 web()      { clone coreyhaines31/marketingskills marketingskills
              clone hardikpandya/stop-slop stop-slop
              clone nextlevelbuilder/ui-ux-pro-max-skill ui-ux-pro-max-skill
-             clone pbakaus/impeccable impeccable; }
+             clone pbakaus/impeccable impeccable
+             clone anthropics/skills anthropic-skills
+             clone lackeyjb/playwright-skill playwright-skill; }
 
 seo()      { web
              clone AgriciDaniel/claude-seo claude-seo
@@ -47,7 +49,10 @@ video()    { clone remotion-dev/skills remotion-skills; }
 
 app()      { clone obra/superpowers superpowers
              clone deanpeters/Product-Manager-Skills Product-Manager-Skills
-             clone nidhinjs/prompt-master prompt-master; }
+             clone nidhinjs/prompt-master prompt-master
+             clone snarktank/ralph ralph
+             clone anthropics/skills anthropic-skills
+             clone lackeyjb/playwright-skill playwright-skill; }
 
 context()  { clone muratcankoylan/Agent-Skills-for-Context-Engineering context-engineering; }
 
