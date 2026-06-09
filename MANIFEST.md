@@ -9,7 +9,7 @@ matching repos clone into `/home/claude`.
 | `seo` | everything in `web` plus claude-seo, claude-blog, superseo-skills, web-quality-skills | Content, indexing, on-page SEO |
 | `writing` | stop-slop | Any prose, fast |
 | `video` | remotion-skills (from remotion-dev/skills) | Programmatic video |
-| `app` | superpowers, Product-Manager-Skills | Dashboard or product builds (Contractor OS) |
+| `app` | superpowers, Product-Manager-Skills, prompt-master | Dashboard or product builds (Contractor OS) |
 | `context` | context-engineering | Long, complex sessions |
 | `convert` | markitdown | PDF/DOCX/PPTX/XLSX/image to Markdown |
 | `all` | every repo above | Full toolkit |
@@ -27,6 +27,7 @@ matching repos clone into `/home/claude`.
 - `remotion-dev/skills` - clones to `remotion-skills`; reference `skills/remotion/SKILL.md`; uses `useCurrentFrame()` and `interpolate()`, no CSS transitions
 - `obra/superpowers` - app and product build skills
 - `deanpeters/Product-Manager-Skills` - product management
+- `nidhinjs/prompt-master` - writes tight, tool-specific prompts for handing off to other AI tools (Cursor, Claude Code, v0, Midjourney). Reference on demand only; read its SKILL.md when actually generating a prompt, not every session. For lowest token cost, prefer the native Claude Skill install over reading it from here.
 - `muratcankoylan/Agent-Skills-for-Context-Engineering` - clones to `context-engineering`
 - `microsoft/markitdown` - file conversion; `pip install markitdown --break-system-packages`, then `markitdown input.pdf > output.md`
 

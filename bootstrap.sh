@@ -46,7 +46,8 @@ writing()  { clone hardikpandya/stop-slop stop-slop; }
 video()    { clone remotion-dev/skills remotion-skills; }
 
 app()      { clone obra/superpowers superpowers
-             clone deanpeters/Product-Manager-Skills Product-Manager-Skills; }
+             clone deanpeters/Product-Manager-Skills Product-Manager-Skills
+             clone nidhinjs/prompt-master prompt-master; }
 
 context()  { clone muratcankoylan/Agent-Skills-for-Context-Engineering context-engineering; }
 
