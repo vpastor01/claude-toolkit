@@ -43,6 +43,19 @@ matching repos clone into `/home/claude`.
   - Usage: add `use context7` to a prompt, or name a library directly, e.g. `use library /vercel/next.js`.
   - Note: it reaches context7.com / npx at runtime, which works in your local Claude Code but is blocked by the sandbox egress proxy here.
 
+- **Crawl4AI** (`unclecode/crawl4ai`, Apache-2.0) - THE OS crawler of record. Open source, self-hosted, no API keys, no per-page fee. Used for client-site ingestion on onboarding, competitor/local recon, and ongoing monitoring. Ships an MCP server, a REST API, and a Python SDK.
+  - Self-host (Docker): `docker run -d -p 11235:11235 --name crawl4ai --shm-size=3g unclecode/crawl4ai:latest`
+  - Claude Code (MCP): `claude mcp add --transport sse c4ai-sse http://localhost:11235/mcp/sse`
+  - Python in the backend: `pip install -U crawl4ai && crawl4ai-setup`. Returns `{url, html, markdown, extracted_content, metadata}`.
+  - Test playground: `http://localhost:11235/playground`.
+  - In the OS: put it behind one internal crawl interface so the provider can be swapped without touching callers.
+  - Note: it hits arbitrary sites and `localhost:11235`, so it runs in your local Claude Code or the deployed backend, not in this chat sandbox (egress is locked here).
+
+- **Firecrawl** (`firecrawl/firecrawl`, AGPL/hosted) - the FALLBACK and zero-infra quick-start. Use before the Crawl4AI container is up, or for sites with heavy JS / anti-bot that Crawl4AI doesn't beat out of the box (Firecrawl handles JS rendering, anti-bot, and proxy rotation). Hosted free tier ~1,000 pages/month, one credit per page.
+  - Claude Code plugin (simplest): run `/plugin`, search `firecrawl`, install. Requires the Firecrawl CLI + an API key.
+  - MCP: official server at `firecrawl/firecrawl-mcp-server`; needs `FIRECRAWL_API_KEY`.
+  - Self-host is possible (AGPL) but only worth it if you specifically need Firecrawl's rendering at scale; otherwise default to Crawl4AI.
+
 
 ## Personal context (private)
 
