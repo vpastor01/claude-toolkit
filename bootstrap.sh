@@ -52,7 +52,26 @@ context()  { clone muratcankoylan/Agent-Skills-for-Context-Engineering context-e
 
 convert()  { clone microsoft/markitdown markitdown; }
 
+# Private personal context (about-me, my-company, anti-ai-writing-style).
+# Lives in a private repo, so the clone needs a token. Set GH_TOKEN in the
+# environment before running. No token is stored in this public file.
+context_files() {
+  local dir="claude-context"
+  if [ -d "$DEST/$dir/.git" ]; then
+    echo "  already here, pulling latest: $dir"
+    git -C "$DEST/$dir" pull -q || true
+  elif [ -n "$GH_TOKEN" ]; then
+    echo "  cloning private context: $dir"
+    git clone -q --depth 1 "https://${GH_TOKEN}@github.com/vpastor01/claude-context.git" "$DEST/$dir" \
+      || echo "  WARN could not clone claude-context (check GH_TOKEN)"
+  else
+    echo "  skipping private context: set GH_TOKEN to load about-me / my-company / anti-ai-writing-style"
+  fi
+  sleep 0.5
+}
+
 echo "claude-toolkit: profile = $PROFILE  ->  $DEST"
+context_files
 case "$PROFILE" in
   web)      web ;;
   seo)      seo ;;

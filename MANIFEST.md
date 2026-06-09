@@ -30,6 +30,20 @@ matching repos clone into `/home/claude`.
 - `muratcankoylan/Agent-Skills-for-Context-Engineering` - clones to `context-engineering`
 - `microsoft/markitdown` - file conversion; `pip install markitdown --break-system-packages`, then `markitdown input.pdf > output.md`
 
+## Personal context (private)
+
+Every run also tries to load my personal context files from the private repo
+`vpastor01/claude-context`:
+
+- `about-me.md` — who I am, how I work, what I hate
+- `my-company.md` — both businesses, strategy, focus
+- `anti-ai-writing-style.md` — my writing standard, long form
+
+These hold business strategy, so they live in a **private** repo and are never
+copied into this public one. The clone needs auth: `export GH_TOKEN=<token>`
+before running bootstrap, or clone the repo directly. Without a token the
+bootstrap skips them and prints a note.
+
 ## Notes
 
 - These repos are third-party. This toolkit clones them fresh from each owner so
